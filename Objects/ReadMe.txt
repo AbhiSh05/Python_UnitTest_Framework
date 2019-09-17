@@ -1,0 +1,2 @@
+This package contains the Object Functions which can be used for validation.
+It might contains different .py files depending upon the functionality and approach. It can have the functions to fetch the values from API or DB.

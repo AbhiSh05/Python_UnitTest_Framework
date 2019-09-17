@@ -1,0 +1,1 @@
+This package consists of Test cases alongwith the description which can be used to create the extent report using automation script.

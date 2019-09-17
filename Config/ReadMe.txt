@@ -1,0 +1,1 @@
+This Package can contains the Configuration Files that can be used to provide configuration Properties to Our Scripts.
