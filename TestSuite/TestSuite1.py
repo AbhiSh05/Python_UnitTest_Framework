@@ -33,5 +33,5 @@ LogResults.endLogger()
 Endtime= datetime.now()
 
 #Creating Email Report
-#EmailReportCreation.EmailReport(Starttime,Endtime)
+EmailReportCreation.EmailReport(Starttime,Endtime,"Example")
 

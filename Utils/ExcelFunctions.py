@@ -56,12 +56,25 @@ def GettingTestCase(modulename,TestCaseID):
             break
     return testcase_dict
 
+# def GetTestSummaryReportInfo():
+#     sheet_list=[]
+#     rb=xlrd.open_workbook(ConfigValues.TestSummaryReport)
+#     r_sheet=rb.sheet_by_index(0)
+#     list=[]
+#     for i in range(r_sheet.nrows):
+#         if r_sheet.cell_value(i,0)!='Module Name':
+#             new_dict={'TestCaseID':r_sheet.cell_value(i,1),'ModuleName':r_sheet.cell_value(i,0),'Description':r_sheet.cell_value(i,2),'Status':r_sheet.cell_value(i,3)}
+#             list.append(new_dict)
+#     return list
+
 def GetTestSummaryReportInfo():
+    sheet_dict={}
     rb=xlrd.open_workbook(ConfigValues.TestSummaryReport)
-    r_sheet=rb.sheet_by_index(0)
-    list=[]
-    for i in range(r_sheet.nrows):
-        if r_sheet.cell_value(i,0)!='Module Name':
-            new_dict={'TestCaseID':r_sheet.cell_value(i,1),'ModuleName':r_sheet.cell_value(i,0),'Description':r_sheet.cell_value(i,2),'Status':r_sheet.cell_value(i,3)}
-            list.append(new_dict)
-    return list
+    for r_sheet in rb.sheets():
+        list=[]
+        for i in range(r_sheet.nrows):
+            if r_sheet.cell_value(i,0)!='Module Name':
+                new_dict={'TestCaseID':r_sheet.cell_value(i,1),'ModuleName':r_sheet.cell_value(i,0),'Description':r_sheet.cell_value(i,2),'Status':r_sheet.cell_value(i,3)}
+                list.append(new_dict)
+            sheet_dict.update({r_sheet.name:list})
+    return sheet_dict
